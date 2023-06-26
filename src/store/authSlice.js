@@ -18,7 +18,7 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
     },
     [register.rejected](state, action) {
-      console.log(action.payload);
+      console.log(action.payload.error);
     },
     [logIn.fulfilled](state, action) {
       state.user = action.payload.user;
