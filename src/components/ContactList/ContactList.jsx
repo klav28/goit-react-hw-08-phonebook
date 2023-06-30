@@ -42,8 +42,8 @@ export const ContactList = () => {
             <tbody>
               {contacts.map(el => (
                 <StyledList.Tr key={el.id}>
-                  <StyledList.Td>{el.contactName}</StyledList.Td>
-                  <StyledList.Td>{el.contactPhone}</StyledList.Td>
+                  <StyledList.Td>{el.name}</StyledList.Td>
+                  <StyledList.Td>{el.number}</StyledList.Td>
                   <StyledList.Td>
                     <StyledList.Btn
                       onClick={() => dispatch(deleteContact(el.id))}

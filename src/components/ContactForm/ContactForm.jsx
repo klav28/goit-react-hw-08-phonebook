@@ -12,22 +12,22 @@ const phoneRegExp = '^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{3}[-s.]?[0-9]{4,6}$';
 const nameRegExp = "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$";
 
 const schema = yup.object().shape({
-  contactName: yup
+  name: yup
     .string()
     .matches(
       nameRegExp,
       'Name may contain only letters, apostrophe, dash and spaces.'
     )
     .required('Name is Required field'),
-  contactPhone: yup
+  number: yup
     .string()
     .matches(phoneRegExp, 'Phone number must be like +919367788755')
     .required('Number is Required field'),
 });
 
 const initialValues = {
-  contactName: '',
-  contactPhone: '',
+  name: '',
+  number: '',
 };
 
 export const ContactForm = () => {
@@ -37,11 +37,9 @@ export const ContactForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     //    onContactAdd(values);
-    console.log('submitted: ', values.contactName);
+    console.log('submitted: ', values.name);
     if (
-      contacts.find(
-        el => el.contactName.toLowerCase() === values.contactName.toLowerCase()
-      )
+      contacts.find(el => el.name.toLowerCase() === values.name.toLowerCase())
     ) {
       alert(`${values.contactName} is already exists in contacts`);
       return;
@@ -60,13 +58,13 @@ export const ContactForm = () => {
         <StyledForm.Form>
           <StyledForm.Label>
             Contact Name:
-            <StyledForm.Error name="contactName" component="span" />
-            <StyledForm.Input type="text" name="contactName" />
+            <StyledForm.Error name="name" component="span" />
+            <StyledForm.Input type="text" name="name" />
           </StyledForm.Label>
           <StyledForm.Label>
             Phone Number:
-            <StyledForm.Error name="contactPhone" component="span" />
-            <StyledForm.Input type="tel" name="contactPhone" />
+            <StyledForm.Error name="number" component="span" />
+            <StyledForm.Input type="tel" name="number" />
           </StyledForm.Label>
           <StyledForm.Button type="submit">Add Contact</StyledForm.Button>
         </StyledForm.Form>

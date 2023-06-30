@@ -14,5 +14,13 @@ export const getFilter = state => state.filter.filter;
 
 export const getFilteredContacts = state =>
   getSortedContacts(state).filter(el =>
-    el.contactName.toLowerCase().includes(getFilter(state).toLowerCase())
+    el.name.toLowerCase().includes(getFilter(state).toLowerCase())
   );
+
+// Auth Selectors
+
+export const selectIsLoggedIn = state => state.auth.isLoggedIn;
+
+export const selectUser = state => state.auth.user;
+
+export const selectIsRefreshing = state => state.auth.isRefreshing;
