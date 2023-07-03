@@ -1,4 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   margin: 0;
@@ -7,6 +10,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.2),
+      rgba(27, 28, 28, 0.7)
+    ),
+    url('https://cdn.pixabay.com/photo/2018/01/11/21/27/desk-3076954_1280.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 code {
@@ -17,7 +28,7 @@ code {
 h1 {
   text-align: center;
   color: white;
-  background-color: rgb(19, 66, 66);
+  background-color: rgb(120, 53, 15);
   padding: 10px;
 }
 

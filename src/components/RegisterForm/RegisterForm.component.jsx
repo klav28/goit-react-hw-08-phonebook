@@ -3,8 +3,8 @@ import { ErrorMessage, Field, Form } from 'formik';
 
 const StyledForm = styled.div`
   display: block;
-  width: 800px;
-  margin: 0 auto;
+  max-width: 620px;
+  margin: 40px auto;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
 `;
 
@@ -26,7 +26,7 @@ StyledForm.Input = styled(Field)`
 
 StyledForm.Label = styled.label`
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   color: #444444;
   width: 100%;
 `;
@@ -46,6 +46,7 @@ StyledForm.Button = styled.button`
   width: 50%;
   margin: 0 auto;
   margin-top: 10px;
+  border: 1px;
 `;
 
 export default StyledForm;

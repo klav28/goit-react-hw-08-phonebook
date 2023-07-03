@@ -9,8 +9,6 @@ import { logIn } from '../../store/authOperations';
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  // const contacts = useSelector(getContacts);
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,7 +24,9 @@ export const LoginForm = () => {
 
   return (
     <StyledForm>
-      <h1>Login User</h1>
+      <p class="h-12 bg-orange-700 text-white text-center py-2 text-2xl">
+        Please Login
+      </p>
       <Formik
         initialValues={{ name, email, password }}
         onSubmit={handleSubmit}
@@ -41,7 +41,12 @@ export const LoginForm = () => {
             Password:
             <StyledForm.Input type="password" name="password" />
           </StyledForm.Label>
-          <StyledForm.Button type="submit">Login</StyledForm.Button>
+          <button
+            class="bg-orange-400 hover:bg-orange-700 text-black font-light text-base h-9 w-20 px-4 rounded mx-auto"
+            type="submit"
+          >
+            Login
+          </button>
         </StyledForm.Form>
       </Formik>
     </StyledForm>

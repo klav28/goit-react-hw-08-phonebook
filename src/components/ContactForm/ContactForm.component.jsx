@@ -3,7 +3,6 @@ import { ErrorMessage, Field, Form } from 'formik';
 
 const StyledForm = styled.div`
   display: block;
-  width: 800px;
   margin: 0 auto;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
 `;

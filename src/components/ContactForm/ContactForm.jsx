@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import StyledForm from './ContactForm.component';
+import Container from '../Container/Container';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../store/operations';
@@ -49,26 +50,28 @@ export const ContactForm = () => {
   };
 
   return (
-    <StyledForm>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={schema}
-      >
-        <StyledForm.Form>
-          <StyledForm.Label>
-            Contact Name:
-            <StyledForm.Error name="name" component="span" />
-            <StyledForm.Input type="text" name="name" />
-          </StyledForm.Label>
-          <StyledForm.Label>
-            Phone Number:
-            <StyledForm.Error name="number" component="span" />
-            <StyledForm.Input type="tel" name="number" />
-          </StyledForm.Label>
-          <StyledForm.Button type="submit">Add Contact</StyledForm.Button>
-        </StyledForm.Form>
-      </Formik>
-    </StyledForm>
+    <Container>
+      <StyledForm>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={schema}
+        >
+          <StyledForm.Form>
+            <StyledForm.Label>
+              Contact Name:
+              <StyledForm.Error name="name" component="span" />
+              <StyledForm.Input type="text" name="name" />
+            </StyledForm.Label>
+            <StyledForm.Label>
+              Phone Number:
+              <StyledForm.Error name="number" component="span" />
+              <StyledForm.Input type="tel" name="number" />
+            </StyledForm.Label>
+            <StyledForm.Button type="submit">Add Contact</StyledForm.Button>
+          </StyledForm.Form>
+        </Formik>
+      </StyledForm>
+    </Container>
   );
 };

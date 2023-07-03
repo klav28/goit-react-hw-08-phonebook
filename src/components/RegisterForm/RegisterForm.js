@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import StyledForm from './RegisterForm.component';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
@@ -8,6 +9,7 @@ import { register } from '../../store/authOperations';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // const contacts = useSelector(getContacts);
 
@@ -26,13 +28,17 @@ export const RegisterForm = () => {
 
   return (
     <StyledForm>
-      <h1>Login User</h1>
+      <h1>User Registration</h1>
       <Formik
         initialValues={{ name, email, password }}
         onSubmit={handleSubmit}
         // validationSchema={schema}
       >
         <StyledForm.Form>
+          <StyledForm.Label>
+            Name:
+            <StyledForm.Input type="text" name="name" />
+          </StyledForm.Label>
           <StyledForm.Label>
             Login:
             <StyledForm.Input type="text" name="email" />
@@ -41,7 +47,10 @@ export const RegisterForm = () => {
             Password:
             <StyledForm.Input type="password" name="password" />
           </StyledForm.Label>
-          <StyledForm.Button type="submit">Login</StyledForm.Button>
+          <StyledForm.Button type="submit">Register</StyledForm.Button>
+          <StyledForm.Button onClick={() => navigate('/login')} type="button">
+            Back To Login
+          </StyledForm.Button>
         </StyledForm.Form>
       </Formik>
     </StyledForm>

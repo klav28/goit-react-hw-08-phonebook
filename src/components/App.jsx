@@ -13,7 +13,7 @@ import { RestrictedRoute } from './RestrictedRoute';
 
 const LoginPage = lazy(() => import('../pages/Login'));
 const RegisterPage = lazy(() => import('../pages/Register'));
-const HomePage = lazy(() => import('../pages/Home'));
+// const HomePage = lazy(() => import('../pages/Home'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
@@ -29,7 +29,12 @@ export const App = () => {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
+        <Route
+          index
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
         <Route
           path="/register"
           element={

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const StyledList = styled.div`
   display: block;
-  width: 800px;
   margin: 0 auto;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
   background-color: #f7f7f7;

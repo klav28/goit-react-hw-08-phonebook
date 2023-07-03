@@ -9,6 +9,8 @@ import {
   getIsLoading,
 } from '../../store/selectors';
 
+import Container from '../Container/Container';
+
 export const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(getFilteredContacts);
@@ -22,42 +24,47 @@ export const ContactList = () => {
   }, [dispatch]);
 
   return (
-    <StyledList>
-      {isLoading && <b>Loading Contacts...</b>}
-      {error && <b>{error}</b>}
-      {contacts.length > 0 && (
-        <>
-          <h2>
-            Contacts
-            <span style={{ fontWeight: 400 }}> | {contacts.length} items</span>
-          </h2>
-          <StyledList.Table>
-            <thead>
-              <tr>
-                <StyledList.Th>Name</StyledList.Th>
-                <StyledList.Th>Phone Number</StyledList.Th>
-                <StyledList.Th>Delete</StyledList.Th>
-              </tr>
-            </thead>
-            <tbody>
-              {contacts.map(el => (
-                <StyledList.Tr key={el.id}>
-                  <StyledList.Td>{el.name}</StyledList.Td>
-                  <StyledList.Td>{el.number}</StyledList.Td>
-                  <StyledList.Td>
-                    <StyledList.Btn
-                      onClick={() => dispatch(deleteContact(el.id))}
-                      id={el.id}
-                    >
-                      X
-                    </StyledList.Btn>
-                  </StyledList.Td>
-                </StyledList.Tr>
-              ))}
-            </tbody>
-          </StyledList.Table>
-        </>
-      )}
-    </StyledList>
+    <Container>
+      <StyledList>
+        {isLoading && <b>Loading Contacts...</b>}
+        {error && <b>{error}</b>}
+        {contacts.length > 0 && (
+          <>
+            <h2>
+              Contacts
+              <span style={{ fontWeight: 400 }}>
+                {' '}
+                | {contacts.length} items
+              </span>
+            </h2>
+            <StyledList.Table>
+              <thead>
+                <tr>
+                  <StyledList.Th>Name</StyledList.Th>
+                  <StyledList.Th>Phone Number</StyledList.Th>
+                  <StyledList.Th>Delete</StyledList.Th>
+                </tr>
+              </thead>
+              <tbody>
+                {contacts.map(el => (
+                  <StyledList.Tr key={el.id}>
+                    <StyledList.Td>{el.name}</StyledList.Td>
+                    <StyledList.Td>{el.number}</StyledList.Td>
+                    <StyledList.Td>
+                      <StyledList.Btn
+                        onClick={() => dispatch(deleteContact(el.id))}
+                        id={el.id}
+                      >
+                        X
+                      </StyledList.Btn>
+                    </StyledList.Td>
+                  </StyledList.Tr>
+                ))}
+              </tbody>
+            </StyledList.Table>
+          </>
+        )}
+      </StyledList>
+    </Container>
   );
 };
