@@ -6,6 +6,7 @@ import Container from '../Container/Container';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../store/operations';
 import { getContacts } from '../../store/selectors';
+import toast from 'react-hot-toast';
 
 const phoneRegExp = '^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{3}[-s.]?[0-9]{4,6}$';
 // /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -42,7 +43,7 @@ export const ContactForm = () => {
     if (
       contacts.find(el => el.name.toLowerCase() === values.name.toLowerCase())
     ) {
-      alert(`${values.contactName} is already exists in contacts`);
+      toast.error(`${values.name} is already exists in contacts`);
       return;
     }
     dispatch(addContact(values));

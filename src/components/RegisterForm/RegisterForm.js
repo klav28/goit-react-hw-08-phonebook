@@ -18,7 +18,7 @@ export const RegisterForm = () => {
   const [password, setPassword] = useState('');
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log('submitted: ', values);
+    // console.log('submitted: ', values);
     dispatch(register(values));
     setName('');
     setEmail('');
