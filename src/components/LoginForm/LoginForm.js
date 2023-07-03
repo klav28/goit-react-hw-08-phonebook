@@ -34,7 +34,7 @@ export const LoginForm = () => {
       >
         <StyledForm.Form>
           <StyledForm.Label>
-            Login:
+            E-Mail:
             <StyledForm.Input type="text" name="email" />
           </StyledForm.Label>
           <StyledForm.Label>

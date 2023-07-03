@@ -42,7 +42,7 @@ export const RegisterForm = () => {
             <StyledForm.Input type="text" name="name" />
           </StyledForm.Label>
           <StyledForm.Label>
-            Login:
+            E-Mail:
             <StyledForm.Input type="text" name="email" />
           </StyledForm.Label>
           <StyledForm.Label>
