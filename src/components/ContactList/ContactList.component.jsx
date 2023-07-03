@@ -4,7 +4,7 @@ const StyledList = styled.div`
   display: block;
   margin: 0 auto;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
-  background-color: #f7f7f7;
+  background-color: rgba(248, 248, 248, 0.8);
   outline: solid 1px #444444;
 `;
 
@@ -19,15 +19,15 @@ StyledList.Td = styled.td`
 
 StyledList.Tr = styled.tr`
   &:nth-of-type(even) {
-    background-color: #e7e7e7;
+    background-color: rgba(248, 248, 248, 0.8);
   }
   &:hover {
-    background-color: #aaa;
+    background-color: rgba(192, 192, 192, 0.8);
   }
 `;
 
 StyledList.Th = styled.th`
-  background-color: #222222;
+  background-color: #555555;
   color: white;
   padding: 4px;
 `;

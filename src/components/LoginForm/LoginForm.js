@@ -24,7 +24,7 @@ export const LoginForm = () => {
 
   return (
     <StyledForm>
-      <p class="h-12 bg-orange-700 text-white text-center py-2 text-2xl">
+      <p class="h-12 bg-slate-600 text-white text-center py-2 text-2xl">
         Please Login
       </p>
       <Formik
@@ -42,7 +42,7 @@ export const LoginForm = () => {
             <StyledForm.Input type="password" name="password" />
           </StyledForm.Label>
           <button
-            class="bg-orange-400 hover:bg-orange-700 text-black font-light text-base h-9 w-20 px-4 rounded mx-auto"
+            class="bg-slate-600 hover:bg-orange-600 text-white font-light text-base h-9 w-20 px-4 mt-3 mb-1 rounded mx-auto"
             type="submit"
           >
             Login

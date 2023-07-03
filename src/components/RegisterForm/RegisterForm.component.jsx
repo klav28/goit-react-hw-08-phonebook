@@ -11,7 +11,7 @@ const StyledForm = styled.div`
 StyledForm.Form = styled(Form)`
   display: flex;
   flex-direction: column;
-  background-color: #f7f7f7;
+  background-color: rgba(248, 248, 248, 0.8);
   outline: solid 1px gray;
   padding: 10px;
 `;
@@ -19,9 +19,10 @@ StyledForm.Form = styled(Form)`
 StyledForm.Input = styled(Field)`
   font-size: 20px;
   display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   width: 99%;
+  padding: 0 8px;
 `;
 
 StyledForm.Label = styled.label`
@@ -37,16 +38,6 @@ StyledForm.Error = styled(ErrorMessage)`
   font-style: italic;
   color: red;
   padding-left: 20px;
-`;
-
-StyledForm.Button = styled.button`
-  padding: 5px;
-  font-size: 20px;
-  font-weight: 300;
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 10px;
-  border: 1px;
 `;
 
 export default StyledForm;

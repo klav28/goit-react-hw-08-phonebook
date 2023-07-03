@@ -68,7 +68,12 @@ export const ContactForm = () => {
               <StyledForm.Error name="number" component="span" />
               <StyledForm.Input type="tel" name="number" />
             </StyledForm.Label>
-            <StyledForm.Button type="submit">Add Contact</StyledForm.Button>
+            <button
+              class="bg-slate-600 hover:bg-orange-600 text-white font-light text-base h-9 w-40 px-4 mt-3 mb-1 rounded mx-auto"
+              type="submit"
+            >
+              Add Contact
+            </button>
           </StyledForm.Form>
         </Formik>
       </StyledForm>

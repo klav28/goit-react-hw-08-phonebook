@@ -10,6 +10,8 @@ import {
 } from '../../store/selectors';
 
 import Container from '../Container/Container';
+import { BsXSquare } from 'react-icons/bs';
+import { IconContext } from 'react-icons';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -26,43 +28,52 @@ export const ContactList = () => {
   return (
     <Container>
       <StyledList>
-        {isLoading && <b>Loading Contacts...</b>}
         {error && <b>{error}</b>}
-        {contacts.length > 0 && (
-          <>
-            <h2>
-              Contacts
-              <span style={{ fontWeight: 400 }}>
+        <div class="h-12 bg-slate-400 text-slate-800 font-bold text-center py-2 text-2xl">
+          {isLoading ? (
+            <p>Loading Contacts...</p>
+          ) : (
+            <p>
+              Contact List
+              <span class="text-slate-600 font-light">
                 {' '}
-                | {contacts.length} items
+                | {contacts.length} items found
               </span>
-            </h2>
-            <StyledList.Table>
-              <thead>
-                <tr>
-                  <StyledList.Th>Name</StyledList.Th>
-                  <StyledList.Th>Phone Number</StyledList.Th>
-                  <StyledList.Th>Delete</StyledList.Th>
-                </tr>
-              </thead>
-              <tbody>
-                {contacts.map(el => (
-                  <StyledList.Tr key={el.id}>
-                    <StyledList.Td>{el.name}</StyledList.Td>
-                    <StyledList.Td>{el.number}</StyledList.Td>
-                    <StyledList.Td>
-                      <StyledList.Btn
-                        onClick={() => dispatch(deleteContact(el.id))}
-                        id={el.id}
+            </p>
+          )}
+        </div>
+        {contacts.length > 0 && (
+          <StyledList.Table>
+            <thead>
+              <tr>
+                <StyledList.Th>Name</StyledList.Th>
+                <StyledList.Th>Phone Number</StyledList.Th>
+                <StyledList.Th>Delete</StyledList.Th>
+              </tr>
+            </thead>
+            <tbody>
+              {contacts.map(el => (
+                <StyledList.Tr key={el.id}>
+                  <StyledList.Td>{el.name}</StyledList.Td>
+                  <StyledList.Td>{el.number}</StyledList.Td>
+                  <StyledList.Td>
+                    <button
+                      onClick={() => dispatch(deleteContact(el.id))}
+                      id={el.id}
+                    >
+                      <IconContext.Provider
+                        value={{ color: '#FF8888', size: '18px' }}
                       >
-                        X
-                      </StyledList.Btn>
-                    </StyledList.Td>
-                  </StyledList.Tr>
-                ))}
-              </tbody>
-            </StyledList.Table>
-          </>
+                        <div>
+                          <BsXSquare />
+                        </div>
+                      </IconContext.Provider>
+                    </button>
+                  </StyledList.Td>
+                </StyledList.Tr>
+              ))}
+            </tbody>
+          </StyledList.Table>
         )}
       </StyledList>
     </Container>

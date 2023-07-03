@@ -10,7 +10,7 @@ const StyledForm = styled.div`
 StyledForm.Form = styled(Form)`
   display: flex;
   flex-direction: column;
-  background-color: #f7f7f7;
+  background-color: rgba(248, 248, 248, 0.8);
   outline: solid 1px gray;
   padding: 10px;
 `;
@@ -21,11 +21,16 @@ StyledForm.Input = styled(Field)`
   margin-top: 10px;
   margin-bottom: 10px;
   width: 99%;
+  padding: 2px 8px;
+  &:focus,
+  &:active {
+    outline: none;
+  }
 `;
 
 StyledForm.Label = styled.label`
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   color: #444444;
   width: 100%;
 `;

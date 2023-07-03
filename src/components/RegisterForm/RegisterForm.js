@@ -28,7 +28,9 @@ export const RegisterForm = () => {
 
   return (
     <StyledForm>
-      <h1>User Registration</h1>
+      <p class="h-12 bg-orange-600 text-black text-center py-2 text-2xl">
+        Please Sign-Up
+      </p>
       <Formik
         initialValues={{ name, email, password }}
         onSubmit={handleSubmit}
@@ -47,10 +49,21 @@ export const RegisterForm = () => {
             Password:
             <StyledForm.Input type="password" name="password" />
           </StyledForm.Label>
-          <StyledForm.Button type="submit">Register</StyledForm.Button>
-          <StyledForm.Button onClick={() => navigate('/login')} type="button">
-            Back To Login
-          </StyledForm.Button>
+          <div class="flex gap-3 mt-3 mb-1 justify-center">
+            <button
+              class="bg-orange-600 hover:bg-orange-700 text-white font-light text-base h-9 w-40 px-4 rounded"
+              type="submit"
+            >
+              Register
+            </button>
+            <button
+              class="bg-slate-400 hover:bg-slate-600 text-black font-light text-base h-9 w-40 px-4 rounded"
+              onClick={() => navigate('/login')}
+              type="button"
+            >
+              Back To Login
+            </button>
+          </div>
         </StyledForm.Form>
       </Formik>
     </StyledForm>

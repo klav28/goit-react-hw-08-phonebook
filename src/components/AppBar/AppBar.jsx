@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Container from '../Container/Container';
 import { selectIsLoggedIn, selectUser } from 'store/authSelectors';
 import { logOut } from '../../store/authOperations';
@@ -11,6 +11,7 @@ export const AppBar = () => {
   const userName = useSelector(selectUser);
   const navigate = useNavigate();
   const logoUrl = new URL('../../../public/logo192.png', import.meta.url);
+  const location = useLocation();
 
   return (
     <Container>
@@ -34,7 +35,7 @@ export const AppBar = () => {
             </button>
           </div>
         )}
-        {!isLoggedIn && (
+        {!isLoggedIn && location.pathname !== '/register' && (
           <button
             class="bg-orange-600 hover:bg-slate-700 text-white font-light text-base h-9 py-1 px-4 rounded"
             onClick={() => navigate('/register')}
